@@ -1,0 +1,5 @@
+FROM redis:7.2.6-bookworm
+RUN apt update
+RUN apt install nano iputils-ping -y
+COPY ./redis.conf /etc/redis/redis.conf
+CMD ["redis-server", "/etc/redis/redis.conf"]

@@ -1,0 +1,32 @@
+services:
+  # redis-auth:
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile.redis
+  #   container_name: redis-auth
+  #   ports:
+  #     - "6379:6379"
+  # auth-server:
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile.node
+  #   container_name: auth-server
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     BASE_URL: http://localhost
+  #     BASE_PORT: 3000
+  #     REDIS_URL: redis://:mdp@localhost:6379
+  #     DISCORD_CLIENT_ID:
+  #     DISCORD_CLIENT_SECRET:
+  #     DISCORD_REDIRECT_URI: http://localhost:3000/api/auth/callback
+  #   depends_on:
+  #     - redis-auth
+  auth-sys:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: auth-sys
+    ports:
+      - "3000:3000"
+    
